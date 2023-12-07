@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CustomTextInput from "./CustomTextInput";
 
 const Login = () => {
     const [username, setUsername] = useState("");
@@ -22,22 +23,19 @@ const Login = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <div>
-                <label>Username:</label>
-                <input
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-            </div>
-            <div>
-                <label>Password:</label>
-                <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-            </div>
+            {/* Utiliza CustomTextInput para cada campo del formulario */}
+            <CustomTextInput
+                label="Username"
+                type="text"
+                value={username}
+                setValue={setUsername}
+            />
+            <CustomTextInput
+                label="Password"
+                type="password"
+                value={password}
+                setValue={setPassword}
+            />
             <div>
                 <label>
                     Remember Me:
